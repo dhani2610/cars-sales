@@ -17,21 +17,17 @@ class SessionsController extends Controller
     {
 
         $attributes = request()->validate([
-            'email'=>'required|email',
+            'email'=>'required',
             'password'=>'required' 
         ]);
 
         if(Auth::attempt($attributes))
         {
             session()->regenerate();
-            if (Auth::user()->status == 2) {
-                return back()->withErrors(['failed'=>'Akun anda di Non Aktifkan oleh admin! Hubungi admin untuk informasi lebih lanjut.']);
-            }
-            if (Auth::user()->role == 'Sekertaris' ||  Auth::user()->role == 'Customer' ) {
-                return redirect('/')->with(['success'=>'You are logged in.']);
-            }else{
-                return redirect('dashboard')->with(['success'=>'You are logged in.']);
-            }
+            // if (Auth::user()->status == 2) {
+            //     return back()->withErrors(['failed'=>'Akun anda di Non Aktifkan oleh admin! Hubungi admin untuk informasi lebih lanjut.']);
+            // }
+            return redirect('dashboard')->with(['success'=>'You are logged in.']);
         }
         else{
 

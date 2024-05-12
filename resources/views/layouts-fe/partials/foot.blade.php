@@ -1,12 +1,10 @@
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('fe/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('fe/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-  <script src="{{ asset('fe/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('fe/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('fe/assets/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('fe/assets/vendor/php-email-form/validate.js') }}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{{ asset('fe/assets/js/main.js') }}"></script>
-
+<script src="{{ asset('fe-new/js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{ asset('fe-new/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('fe-new/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{ asset('fe-new/js/jquery-ui.min.js')}}"></script>
+<script src="{{ asset('fe-new/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{ asset('fe-new/js/mixitup.min.js')}}"></script>
+<script src="{{ asset('fe-new/js/jquery.slicknav.js')}}"></script>
+<script src="{{ asset('fe-new/js/owl.carousel.min.js')}}"></script>
+<script src="{{ asset('fe-new/js/main.js')}}"></script>
 @yield('script-fe')

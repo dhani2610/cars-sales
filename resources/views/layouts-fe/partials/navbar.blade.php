@@ -1,24 +1,35 @@
-<header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>SEKERTARIS</h1>
-      </a>
-
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="{{ route('home') }}">Home</a></li>
-          @if (Auth::check())
-          <li><a class="get-a-quote" href="{{ url('dashboard') }}" style="background: none;border: 1px solid blue;border-radius: 15px;">Dashboard</a></li>
-          <li><a class="get-a-quote bg-danger" href="{{ url('/logout')}}" style="background: none!important;border: 1px solid red;border-radius: 15px;">Logout</a></li>
-          @else
-          <li><a class="get-a-quote" href="{{ url('login') }}" style="background: none;border: 1px solid blue;border-radius: 15px;">Login</a></li>
-          @endif
-        </ul>
-      </nav><!-- .navbar -->
-
-    </div>
+<header class="header">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-2">
+              <div class="header__logo">
+                  <a href="/"><img src="https://trukhino.id/wp-content/uploads/2022/08/logo.png" alt=""></a>
+              </div>
+          </div>
+          <div class="col-lg-10">
+              <div class="header__nav">
+                  <nav class="header__menu">
+                      <ul>
+                          <li class=""><a href="/">Home</a></li>
+                          @php
+                              $tipe = \App\Models\Kategori::get();
+                          @endphp
+                          @foreach ($tipe as $item)
+                            <li><a href="{{ route('show-kategori',$item->id) }}">{{ $item->kategori }}</a></li>
+                          @endforeach
+                      </ul>
+                  </nav>
+                  @php
+                      $social = \App\Models\Social::first();
+                  @endphp
+                  <div class="header__nav__widget">
+                      <a href="{{ $social->link_wa ?? '#' }}" class="primary-btn" target="_blank">Hubungi WhatsApp</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="canvas__open">
+          <span class="fa fa-bars"></span>
+      </div>
+  </div>
 </header>
